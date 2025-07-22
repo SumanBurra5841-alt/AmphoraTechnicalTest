@@ -1,0 +1,84 @@
+# Cypress Practical Test Framework (UI + API | BDD + POM)
+
+This project demonstrates a Cypress automation framework setup for both **UI and API** test automation using:
+- ✅ Cypress + JavaScript
+- ✅ Cucumber (BDD)
+- ✅ Page Object Model (POM)
+- ✅ API Request Testing (Petstore Swagger)
+- ✅ Screenshot/Video capture on failure
+- ✅ CLI execution with reporting
+
+---
+
+## 📁 Project Structure
+
+## 📁 Project Structure
+Cypress_PracticalTest/
+├── cypress/
+│   ├── e2e/
+│   │   ├── ui/
+│   │   │   └── features/
+│   │   │       ├── login.feature
+│   │   │       └── navigation.feature
+│   │   ├── api/
+│   │   │   └── features/
+│   │   │       └── pet.feature
+│   ├── support/
+│   │   ├── step_definitions/
+│   │   │   ├── loginSteps.js
+│   │   │   ├── navigationSteps.js
+│   │   │   └── petSteps.js
+│   │   ├── pageObjects/
+│   │   │   ├── LoginPage.js
+│   │   │   └── NavigationPage.js
+│   │   ├── commands.js
+│   │   └── petapi.js
+│   ├── fixtures/
+│   │   └── example.json
+│   ├── screenshots/          ← Captured on test failures
+│   ├── videos/               ← Video recordings
+│   ├── assets/               ← (Optional) Custom data, mocks, etc.
+│
+├── mochawesome-report/       ← Final HTML report
+├── reports/                  ← Raw JSON files from mochawesome
+│   ├── mochawesome.json
+│   └── mochawesome.html
+│
+├── cypress.config.js
+├── package.json
+├── package-lock.json
+├── README.md
+
+| Folder                             | Purpose                                       |
+| ---------------------------------- | --------------------------------------------- |
+| `e2e/ui/features/`                 | All UI BDD `.feature` files                   |
+| `e2e/api/features/`                | All API `.feature` files                      |
+| `step_definitions/`                | Step implementations for UI/API               |
+| `pageObjects/`                     | POM files for reusable UI selectors & actions |
+| `petapi.js`                        | API helper methods for Pet endpoints          |
+| `screenshots/` + `videos/`         | Auto-captured on failures                     |
+| `reports/` + `mochawesome-report/` | Raw & final reports                           |
+| `cypress.config.js`                | Central config for Cypress and reporter       |
+
+
+
+
+Install Dependencies
+
+npm install
+
+Run Tests:
+npx cypress run --spec "cypress/e2e/ui/features/*.feature"
+npx cypress run --spec "cypress/e2e/api/features/pet.feature"
+
+
+Merge JSON reports
+npx mochawesome-merge cypress/reports/*.json > mochawesome.json
+
+Generate HTML report
+npx marge mochawesome.json -f report -o mochawesome-report
+
+Author
+Suman Burra
+QA Automation Engineer
+Specialized in Cypress, BDD, API automation, and framework design
